@@ -1,0 +1,84 @@
+#header {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 50px;
+  color: #666;
+}
+.header__menu {
+  position: fixed;
+  top: 0px;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+  width: 100%;
+  color: #666;
+  border-bottom: 0.5px solid gainsboro;
+  justify-content: flex-start;
+}
+.header__item {
+  padding: 15px;
+  display: inline-block;
+  line-height: 100%;
+}
+.header__item:first-child {
+  padding: 0;
+}
+.header__item__img {
+  display: inline-block;
+  width: 150px;
+  height: 73px;
+}
+.header__item:nth-child(2) {
+  flex: 2;
+  padding-left: 5%;
+}
+.header__item__search {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 12px;
+  width: 100%;
+}
+.header__item__search > i {
+  color: #ccc;
+  margin-right: 10px;
+}
+.header__item__search > input {
+  height: 100%;
+  outline: none;
+  border: none;
+}
+
+.header__item:nth-child(6) {
+  margin-right: 237px;
+}
+.header__item:nth-child(3),
+.header__item:nth-child(4),
+.header__item:nth-child(5),
+.header__item:nth-child(6) {
+  height: 73px;
+  line-height: 50px;
+}
+
+.header__item:nth-child(3):hover,
+.header__item:nth-child(4):hover,
+.header__item:nth-child(5):hover,
+.header__item:nth-child(6):hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}
+/* -----------------------------------------scroll Top-------------------------------------------- */
+#scrollTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.scrollTop__img {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+  transition: all ease 0.5s;
+}
