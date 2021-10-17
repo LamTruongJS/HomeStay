@@ -1,0 +1,248 @@
+@media (max-width: 739px) {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+  }
+  /* :root {
+    --height-header: 74px;
+  } */
+  .header__item:nth-child(3),
+  .header__item:nth-child(4),
+  .header__item:nth-child(5) {
+    padding: 15px 9px;
+    min-width: 87px;
+    text-align: center;
+  }
+  .header__item:nth-child(3) a,
+  .header__item:nth-child(4) a,
+  .header__item:nth-child(5) a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .header__item:nth-child(2),
+  .header__item:nth-child(6),
+  .header__item:nth-child(7) {
+    display: none;
+  }
+  .header__menu {
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    color: #666;
+    border-bottom: 0.5px solid gainsboro;
+    justify-content: flex-start;
+    padding: 0px;
+  }
+  .header__item {
+    display: inline-block;
+    line-height: 100%;
+  }
+  .header__item__img {
+    display: inline-block;
+    padding-top: 20px;
+    width: 100px;
+    height: auto;
+  }
+  .header__item > .navbar > li {
+    display: inline-block;
+    width: 120px;
+  }
+  .header__item > .navbar > li:nth-child(odd) {
+    padding-left: 10px;
+    text-align: left;
+  }
+  .header__item > .navbar > li:nth-child(even) {
+    margin-left: 50px;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .header__item .navbar li {
+    list-style: none;
+  }
+  .header__item .navbar li > a {
+    text-decoration: none;
+    color: #222;
+    padding-left: 10px;
+  }
+
+  .header__item > .navbar > li:hover > a {
+    color: #fff;
+    border-color: #f65e39;
+    background-color: #f65e39;
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .header__item > .navbar > li:hover {
+    border-color: #f65e39;
+    background-color: #f65e39;
+    color: #fff !important;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .header__item:hover > .navbar {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    transition: all 0.3s ease;
+  }
+
+  /* -----------------------------Container---------------------------- */
+  #container {
+    margin: 20px 5px 0 5px;
+    line-height: 1.6;
+  }
+  .content {
+    margin-top: 80px;
+    text-align: justify;
+  }
+  /* ------------------------------slider---------------------------------------------------------- */
+  .swiper {
+    width: 100%;
+    height: 100%;
+    background: black;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: black;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    max-width: 550px;
+    max-height: 220px;
+    overflow: hidden;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 550px;
+    height: 220px;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+  .swiper-slide img:hover {
+    cursor: pointer;
+    width: 580px;
+    height: 250px;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  /* ---------------------------------------------------------------------------------------------- */
+
+  .content__two {
+    margin-top: 10px !important;
+  }
+  .content__desc {
+    line-height: 2;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0px;
+  }
+  .content__desc > p {
+    color: #222;
+    font-size: 15px;
+    text-align: justify;
+  }
+  .content__desc--title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #f65e39;
+  }
+  .content__desc--about {
+    font-weight: 500;
+    font-weight: bold;
+  }
+  .content__desc__relate__title {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    color: #f65e39;
+  }
+  .content__desc__relate__homestay {
+    padding: 5px;
+    cursor: pointer;
+  }
+  .content__desc__relate__homestay--imgBig {
+    max-width: 200px;
+    overflow: hidden;
+    max-height: 146.656px;
+  }
+  .content__desc__relate__homestay--img {
+    width: 200px;
+    height: 146.656px;
+    transition: all 0.5s ease;
+  }
+  .content__desc__relate__homestay--img:hover {
+    width: 220px;
+    height: 160px;
+  }
+  .content__desc__relate__homestay--name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .content__desc__relate__homestay--item {
+    font-size: 12px;
+    color: #333;
+  }
+  .content__desc__relate__homestay--price {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .content__desc__relate__homestay--location {
+    font-size: 12px;
+    color: #333;
+  }
+  /* ------------------------------------------Footer------------------------------------------------- */
+  #footer {
+    margin-top: 0px;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 200px;
+  }
+  #footer > .social-list {
+    padding-top: 80px;
+    width: 100%;
+    text-align: center;
+  }
+  #footer > .social-list > a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+  }
+  #footer .footer-by {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 15px 0;
+  }
+  #footer .footer-by:hover,
+  #footer > .social-list > a:hover {
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+}
