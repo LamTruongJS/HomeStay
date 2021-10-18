@@ -59,13 +59,13 @@ if (!isset($_SESSION['email'])) {
 
         <div class="content">
             <?php
-$email = $_SESSION['email'];
-include "../config.php";
-$sql = "SELECT * FROM user where email='$email'";
-$result = $conn->query($sql);
-$row = mysqli_fetch_array($result);
-echo "<p class='hello_name'>Xin chào, " . $row['name'] . "&nbsp;&nbsp;<a href='../logout'><i class='ti-share-alt'></i></a></p>";
-?>
+                $email = $_SESSION['email'];
+                include "../config.php";
+                $sql = "SELECT * FROM user where email='$email'";
+                $result = $conn->query($sql);
+                $row = mysqli_fetch_array($result);
+                echo "<p class='hello_name'>Xin chào, " . $row['name'] . "&nbsp;&nbsp;<a href='../logout'><i class='ti-share-alt'></i></a></p>";
+            ?>
 
             <h3 class="content__title">Chào mừng đến với TEDs-Stay!</h3>
             <p class="content__desc">
@@ -92,10 +92,14 @@ echo "<p class='hello_name'>Xin chào, " . $row['name'] . "&nbsp;&nbsp;<a href='
                         $result = $conn->query("$sql");
                         for ($i = 0; $i < $result->num_rows; $i++) {
                             $row = mysqli_fetch_array($result);
+                            $maTP=$row['maTP'];
+                            $sql2= "SELECT * FROM home_stay where maTP = '$maTP'";
+                            $result2=mysqli_query($conn,$sql2);
+                            $soLuong = mysqli_num_rows($result2);
                             echo '<a class="swiper-slide slider__top__pros" href=../city?maTP=' . $row['maTP'] . '>';
                             echo '<div class="swiper__content">';
                             echo '<p class="swiper__content__title">' . $row['tenTP'] . '</p>';
-                            echo '<p class="swiper__content__desc">' . $row['soLuong'] . ' homestay </p>';
+                            echo '<p class="swiper__content__desc">' . $soLuong . ' homestay </p>';
                             echo '</div>';
                             echo '<img class="img__slider__top__pros" src="../' . $row["hinh_anhTP"] . '" />';
                             echo '</a>';

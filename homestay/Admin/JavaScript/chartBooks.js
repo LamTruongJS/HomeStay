@@ -10,16 +10,16 @@ var arrayListBookPush = arrayBookPush.map(function(arrayBook) {
   return arrayBook.innerHTML
 })
 
-//getData
-let bookDown = document.querySelectorAll(".bookDown")
-let arraybookDown =[]
-bookDown.forEach(function(bookDownitem) {
-  return arraybookDown.push(bookDownitem)
-})
-// trả về 1 mảng chỉ lấy text
-var arrayListbookDown = arraybookDown.map(function(arrayBook) {
-  return arrayBook.innerHTML
-})
+// //getData
+// let bookDown = document.querySelectorAll(".bookDown")
+// let arraybookDown =[]
+// bookDown.forEach(function(bookDownitem) {
+//   return arraybookDown.push(bookDownitem)
+// })
+// // trả về 1 mảng chỉ lấy text
+// var arrayListbookDown = arraybookDown.map(function(arrayBook) {
+//   return arrayBook.innerHTML
+// })
 
 
 // Chart bar

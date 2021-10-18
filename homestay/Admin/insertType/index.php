@@ -15,34 +15,28 @@
    <!-- header-->
   
    <?php 
-   $errEmail='';
-   $maQuyen=$_GET['maQuyen']??'';
-   $email=$_POST['email']??'';
-   $password=$_POST['password']??'';
-   $name=$_POST['name']??'';
-   $id='ID'.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
+   $errName='';
+   $tenLoaiHST=$_POST['name']??'';
+   $maLHST='LHST'.rand(0,9).rand(0,9).rand(0,9);
    include '../../config.php';
    if(isset($_POST['insert'])){
-    $sqlEmail = "SELECT * FROM user s  WHERE s.email ='$email'";
-    $resultEmail = mysqli_query($conn, $sqlEmail);
-    $num_rowsEmail = mysqli_num_rows($resultEmail);
-    if ($num_rowsEmail != 0) {
-      $errEmail = "Email đã tồn tại !";
+    $sql1 = "SELECT * FROM loai_home_stay  WHERE tenLoaiHST='$tenLoaiHST'";
+    $result1 = mysqli_query($conn, $sql1);
+    $num_rows1 = mysqli_num_rows($result1);
+    if ($num_rows1 != 0) {
+      $errName = "Loại HomeStay đã tồn tại !";
     }
-    if($num_rowsEmail == 0 && $password !='') {
-      $sqlID = "SELECT ID FROM user";
+    if($num_rows1 == 0) {
+      $sqlID = "SELECT * FROM loai_thanh_pho";
       $resultID = mysqli_query($conn, $sqlID);
       $row = mysqli_fetch_array($resultID);
-      while (strcmp($id, $row['ID']) == 0) {
-        $id='ID'.rand(0,9).rand(0,9).rand(0,9);
+      while (strcmp($maLHST, $row['maLoaiHST']) == 0) {
+        $maLHST='LHST'.rand(0,9).rand(0,9).rand(0,9);
       }
-      $sql = "INSERT INTO user values('".$id."','".$name."','".$email."','".$password."','".$maQuyen."')";
+      $sql = "INSERT INTO loai_home_stay values('".$maLHST."','".$tenLoaiHST."')";
       $result = mysqli_query($conn, $sql);
       if($result){
-        if($maQuyen=='admin'){
-          header('Location: /homestay/Admin/ad_acccounts/Admins.php');
-        }
-        else header('Location: /homestay/Admin/ad_acccounts/User.php');
+        header('Location: /homestay/Admin/ad_typeHomestay/');
       }
       }
    }
@@ -52,22 +46,15 @@
      ?>
         <form class=" col-md-8 border border-1 p-3" action="" method="POST">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">ID</label>
-                <input type="text" class="form-control" value="<?php echo $id ?>" id="exampleFormControlInput1" readonly>
+                <label for="exampleFormControlInput1" class="form-label">Mã Loại HomeStay</label>
+                <input type="text" class="form-control" value="<?php echo $maLHST ?>" id="exampleFormControlInput1" readonly>
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">Tên</label>
-                <input type="text" class="form-control" name="name" value="<?php echo $name ?>" id="exampleFormControlInput2">
+                <label for="exampleFormControlInput2" class="form-label">Tên Loại HomeStay</label>
+                <input type="text" class="form-control" name="name" value="<?php echo $tenLoaiHST ?>" id="exampleFormControlInput2">
               </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput3" class="form-label">email</label>
-                <input type="email" class="form-control" name="email" value="<?php echo $email ?>" id="exampleFormControlInput3">
-              </div>
-              <?php if(!empty($errEmail)) echo "<p class='text-danger'>$errEmail</p>"; else echo ''?>
-              <div class="mb-3">
-                <label for="exampleFormControlInput4" class="form-label">password</label>
-                <input type="text" class="form-control" name="password" value="<?php echo $password ?>" required id="exampleFormControlInput4">
-              </div>
+              <?php if(!empty($errName)) echo "<p class='text-danger'>$errName</p>"; else echo ''?>
+              
               <input type="submit" class="btn btn-outline-success" name="insert" value="Hoàn tác"/>
         </form>
       <div class="clock">  

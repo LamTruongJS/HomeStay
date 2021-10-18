@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="../../font/themify-icons/themify-icons.css" />
+    <link rel="shortcut icon" type="image/png" href="../../asset/favicon.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="../Css/admin.css">
     <link rel="stylesheet" href="../Css/home.css">
@@ -16,58 +17,58 @@
     <?php include "../header/index.php" ?>  
           <nav class="col-md-8">
               <table class="table table-hover">
-                  <h2>Author</h2>
+               
+                  <div class="d-flex justify-content-between">
+                    <h2 class='d-inline'>Loại HomeStay</h2>
+                    <a href="../insertType" class="btn btn-outline-success d-inline-block mb-3 mt-2">Thêm Mới</a>
+                  </div>
+                  <form action="index.php" method="GET">
+                    <div class="input-group w-100">
+                      <input type="search" name="search" placeholder="Search"
+                      class="form-control border-1"
+                      value="<?php if(isset($_GET['search'])) echo $_GET['search']; else echo ''?>" />                   
+                        <button id="button-addon1" type="submit" class="btn btn-link border border-1 btn-light text-dark"><i class="fas fa-search"></i></button>                       
+                      </div>
+                  </from>
                   <thead>
                     <tr>
                       <th scope="col">STT</th>
-                      <th scope="col">BookName</th>
-                      <th scope="col">DateTimePosted</th>
-                      <th scope="col">Path</th>
-                      <th scope="col">Cover</th>
-                      <th scope="col">Summary</th>
-                      <th scope="col">AuthorName</th>
-                      <th scope="col">Country</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">PhoneNumber</th>
+                      <th scope="col">Mã Loại HomeStay</th>
+                      <th scope="col">Tên Loại HomeStay</th>
+                      <th scope="col">Tiện Ích</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                      <td>...</td>
-                    </tr>
+                    <?php 
+                      include '../../config.php';
+                      $search=$_GET['search']??'';
+                      if(isset($_GET['search'])){
+                          if(empty($_GET['search'])){
+                            $sql="SELECT * FROM loai_home_stay";
+                          }
+                          else{
+                            $sql= "SELECT * FROM loai_home_stay where maLoaiHST like '%$search%' or tenLoaiHST like '%$search%'";
+                          }
+                      }
+                      else{
+                        $sql="SELECT * FROM loai_home_stay";
+                      }
+                      $result =mysqli_query($conn,$sql);
+                      for($i=1;$i<=$result->num_rows;$i++){
+                        $row=mysqli_fetch_array($result);
+                        $maLoaiHST= $row['maLoaiHST'];
+                        echo "<tr>";
+                        echo "<th scope='row'>$i</th>";
+                        echo "<td>".$row['maLoaiHST']."</td>";
+                        echo "<td>".$row['tenLoaiHST']."</td>";
+                        echo "<td align='center'>
+                              <a href='../editType?maLHST=$maLoaiHST'><i class='fa fa-text-width' aria-hidden='true'></i></a>
+                              <a href='../removeType?maLHST=$maLoaiHST'><i class='ti-trash'></i></a>
+                              </td>";
+                        echo"</tr>";
+                      }
+                    ?>
+                   
                   </tbody>
                 </table>
           </nav>

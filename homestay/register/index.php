@@ -32,12 +32,12 @@ if (isset($_POST['register'])) {
     $errEmail = "Email đã tồn tại !";
   }
   if($num_rowsEmail == 0 && $password === $confirm_password) {
-    $index = "ID" . rand(100, 999);
+    $index='ID'.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
     $sqlID = "SELECT ID FROM user";
     $resultID = mysqli_query($conn, $sqlID);
     $row = mysqli_fetch_array($resultID);
     while (strcmp($index, $row['ID']) == 0) {
-      $index = "ID" . rand(100, 999);
+      $index='ID'.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
     }
     $sql = "INSERT INTO user values('".$index."','".$username."','".$email."','".$password."','user')";
     $result = mysqli_query($conn, $sql);

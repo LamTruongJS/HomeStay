@@ -15,60 +15,50 @@
    <!-- header-->
   
    <?php 
-   $errEmail='';
-   $maQuyen=$_GET['maQuyen']??'';
-   $email=$_POST['email']??'';
-   $password=$_POST['password']??'';
-   $name=$_POST['name']??'';
-   $id='ID'.rand(0,9).rand(0,9).rand(0,9).rand(0,9);
+  
    include '../../config.php';
-   if(isset($_POST['insert'])){
-    $sqlEmail = "SELECT * FROM user s  WHERE s.email ='$email'";
-    $resultEmail = mysqli_query($conn, $sqlEmail);
-    $num_rowsEmail = mysqli_num_rows($resultEmail);
-    if ($num_rowsEmail != 0) {
-      $errEmail = "Email đã tồn tại !";
-    }
-    if($num_rowsEmail == 0 && $password !='') {
-      $sqlID = "SELECT ID FROM user";
-      $resultID = mysqli_query($conn, $sqlID);
-      $row = mysqli_fetch_array($resultID);
-      while (strcmp($id, $row['ID']) == 0) {
-        $id='ID'.rand(0,9).rand(0,9).rand(0,9);
-      }
-      $sql = "INSERT INTO user values('".$id."','".$name."','".$email."','".$password."','".$maQuyen."')";
-      $result = mysqli_query($conn, $sql);
-      if($result){
-        if($maQuyen=='admin'){
-          header('Location: /homestay/Admin/ad_acccounts/Admins.php');
+   
+    $maLHST= $_GET['maLHST']??'';
+    $sql= "SELECT * FROM loai_home_stay where maLoaiHST= '$maLHST'";
+    $result= mysqli_query($conn,$sql);
+    $row=mysqli_fetch_array($result);
+    $name=$row['tenLoaiHST'];
+    $errName='';
+    if(isset($_POST['edit'])){
+      $name= $_POST['name'];
+      $sql2="SELECT* FROM loai_home_stay where maLoaiHST<>'$maLHST'";
+      $result2= mysqli_query($conn,$sql2);
+      $flat= false;
+      for($i=0;$i<$result2->num_rows;$i++){
+        $row2= mysqli_fetch_array($result2);
+        if($name==$row2['tenLoaiHST']){
+          $errName="Loại HomeStay này đã tồn tại";
+         $flat= true;
         }
-        else header('Location: /homestay/Admin/ad_acccounts/User.php');
       }
+      if($flat==false && $name!=""){
+      $sql3= "UPDATE loai_home_stay SET tenLoaiHST='$name' where maLoaiHST='$maLHST'";
+      $result3= mysqli_query($conn,$sql3); 
+      if($result3){
+        header('Location: /homestay/Admin/ad_typeHomestay/');
       }
-   }
+     }
+    }
    ?>
     <?php
     include '../header/index.php';
      ?>
         <form class=" col-md-8 border border-1 p-3" action="" method="POST">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">ID</label>
-                <input type="text" class="form-control" value="<?php echo $id ?>" id="exampleFormControlInput1" readonly>
+                <label for="exampleFormControlInput1" class="form-label">Mã Loại HomeStay</label>
+                <input type="text" class="form-control" value="<?php echo $maLHST ?>" id="exampleFormControlInput1" readonly>
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">Tên</label>
                 <input type="text" class="form-control" name="name" value="<?php echo $name ?>" id="exampleFormControlInput2">
               </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput3" class="form-label">email</label>
-                <input type="email" class="form-control" name="email" value="<?php echo $email ?>" id="exampleFormControlInput3">
-              </div>
-              <?php if(!empty($errEmail)) echo "<p class='text-danger'>$errEmail</p>"; else echo ''?>
-              <div class="mb-3">
-                <label for="exampleFormControlInput4" class="form-label">password</label>
-                <input type="text" class="form-control" name="password" value="<?php echo $password ?>" required id="exampleFormControlInput4">
-              </div>
-              <input type="submit" class="btn btn-outline-success" name="insert" value="Hoàn tác"/>
+              <?php if(isset($errName)) echo "<p class='text-danger'>$errName</p>"; else echo ''?>
+              <input type="submit" class="btn btn-outline-success" name="edit" value="Hoàn tác"/>
         </form>
       <div class="clock">  
         <div class="today text-center text-muted"></div>

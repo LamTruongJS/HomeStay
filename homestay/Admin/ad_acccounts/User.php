@@ -37,7 +37,7 @@
                       <th scope="col">Tên</th>
                       <th scope="col">Email</th>
                       <th scope="col">Password</th>   
-                      <th scope="col">Tiện ích</th>
+                      <th scope="col">Tiện Ích</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -68,7 +68,7 @@
                           echo "<td>".$row['email']."</td>";
                           echo "<td>".$row['password']."</td>";
                           echo "<td align='center'>
-                                <a href='../editAccountData?maUser=$id'><i class='fa fa-text-width' aria-hidden='true'></i></a>
+                                <a href='../editAccount?maUser=$id'><i class='fa fa-text-width' aria-hidden='true'></i></a>
                                 <a href='../removeAccount?maUser=$id'><i class='ti-trash'></i></a>
                                 </td>"; 
                       }  

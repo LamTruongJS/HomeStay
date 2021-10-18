@@ -16,3 +16,9 @@
 a {
     text-decoration: none !important;
 }
+.item__page{
+    transition: all 0.3 ease;
+}
+.item__page:hover{
+   font-size: 20px;
+}

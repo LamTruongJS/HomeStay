@@ -12,6 +12,9 @@
     <title>Author</title>
 </head>
 <body>
+  <?php
+    session_start();
+  ?>
     <!-- header-->
   <nav class="sb-topnav navbar navbar-expand navbar-light bg-light sticky-top">
     <!-- logo Book-->
@@ -23,25 +26,27 @@
  
     
     </form>
+        
     <!-- Navbar Dropdown-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown justify-content">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#!">Logout</a></li>
-            </ul>
-        </li>
+    
+           <?php
+                $email = $_SESSION['email'];
+                include "../../config.php";
+                $sql = "SELECT * FROM user where email='$email'";
+                $result = $conn->query($sql);
+                $row = mysqli_fetch_array($result);
+                echo "<p style='padding-right: 10px;margin-bottom: 0px;padding-top: 20px;'>Xin chào, " . $row['name'] . "&nbsp;&nbsp;<a href='../../logout'><i class='ti-share-alt'></i></a></p>";
+            ?>
+       
     </ul>
 </nav>
       <nav class="row container m-0 mt-4"> 
           <nav class="col-md-3">
           <div class="list_item_2" id="B">
-                <a href="#B" class="list-group-item list-group-item-action active list_2 bg-white text-muted">Accounts</a>
+                <a href="#B" class="list-group-item list-group-item-action active list_2 bg-white text-muted">Tài Khoảng</a>
                 <div class="item_2">
-                  <a href="../ad_acccounts/User.php" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Users</a>
-                  <a href="../ad_acccounts/Admins.php" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Admins</a>
+                  <a href="../ad_acccounts/User.php" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Người dùng</a>
+                  <a href="../ad_acccounts/Admins.php" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Quản trị viên</a>
                   
                 </div>
               </div>
@@ -55,17 +60,17 @@
                 </div>
               </div>
             
-              <!-- <div class="list_item_3" id="C">
+              <div class="list_item_3" id="C">
                 <a href="#C" class="list-group-item list-group-item-action active list_3 bg-white text-muted" aria-current="true">
-                  Statistical
+                  Thống kê
               </a>
                 <div class="item_3">
-                  <a href="../Statistical/Views.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Views</a>        
-                  <a href="../Statistical/Books.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Books</a>
-                  <a href="../Statistical/Turnover.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Turnover</a>
+                  <a href="../statistical/city.php" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;HomeStay</a>        
+                  <!-- <a href="../Statistical/Books.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Books</a>
+                  <a href="../Statistical/Turnover.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Turnover</a> -->
                  
                 </div>
-              </div> -->
+              </div>
           </div>
         </div>
       </nav>

@@ -18,7 +18,7 @@
   
    include '../../config.php';
    
-   $id= $_GET['maUser']??'';
+    $id= $_GET['maUser']??'';
     $sql= "SELECT * FROM user where ID= '$id'";
     $result= mysqli_query($conn,$sql);
     $row=mysqli_fetch_array($result);

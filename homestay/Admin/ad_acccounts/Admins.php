@@ -42,7 +42,7 @@
                       <th scope="col">Tên</th>
                       <th scope="col">Email</th>
                       <th scope="col">password</th>   
-                      <th scope="col">Tiện ích</th>
+                      <th scope="col">Tiện Ích</th>
                     </tr>
                   </thead>
                   <tbody>
