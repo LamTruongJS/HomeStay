@@ -41,7 +41,7 @@ var arraryListnameCity = arraynameCity.map(function(listnameCity) {
           `${arraryListnameCity[9]}`,
         ],
         datasets:[{
-          label:'Số Lượng HomeStay',
+          label:'Giá tiền ',
           data:[
             `${arraryListamount[0]}`,
             `${arraryListamount[1]}`,
@@ -144,7 +144,7 @@ var arraryListnameCity = arraynameCity.map(function(listnameCity) {
           
         ],
         datasets:[{
-          label:'Số lượng homeStay',
+          label:'Giá tiền',
           data:[
             `${arraryListamount[0]}`,
             `${arraryListamount[1]}`,
@@ -219,7 +219,7 @@ var configHorizontalBar= {
      
     ],
     datasets:[{
-      label:'Số lượng homeStay',
+      label:'Giá tiền ',
       data:[
         `${arraryListamount[0]}`,
         `${arraryListamount[1]}`,

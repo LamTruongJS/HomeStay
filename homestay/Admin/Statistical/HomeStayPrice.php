@@ -15,7 +15,7 @@
      <?php include "../header/index.php" ?> 
 
     <div class="col-md-8 m-0">
-        <h2>HomeStay</h2>
+        <h2>Giá Thành</h2>
             <nav class="m-0">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active itemBar text-muted" id="nav-bar-tab" data-bs-toggle="tab" data-bs-target="#nav-bar" type="button" role="tab" aria-controls="nav-bar" aria-selected="true">Bar</button>
@@ -40,18 +40,13 @@
     <?php
           include('../../config.php');
 
-           $sql = "SELECT * FROM thanh_pho";
+           $sql = "SELECT * FROM home_stay ORDER BY donGia DESC LIMIT 10";
 
           $result = $conn->query("$sql");
-          for ($i = 0; $i <$result ->num_rows; $i++) {
+          for ($i = 0; $i < $result->num_rows; $i++) {
            $row = mysqli_fetch_array($result);
-             $maTP=$row['maTP'];
-             //truy vấn lấy thành phố
-             $sql2= "SELECT * FROM home_stay where maTP = '$maTP'";
-            $result2=mysqli_query($conn,$sql2);
-            $soLuong = mysqli_num_rows($result2);
-            echo "<div class='nameCity'>".$row['tenTP']."</div>";
-            echo "<div class='amount'>".$soLuong."</div>";
+            echo "<div class='nameCity'>".$row['tenHStay']."</div>";
+            echo "<div class='amount'>".$row['donGia']."</div>";
           }
             $conn->close();
           ?>
@@ -69,7 +64,7 @@
       </div>
       
       <script type="text/javascript" src="../JavaScript/clock.js"></script>
-    <script type="text/javascript" src="../JavaScript/chartCity.js"></script> 
+    <script type="text/javascript" src="../JavaScript/chartPriceHomestay.js"></script> 
     <script type="text/javascript" src="../JavaScript/home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

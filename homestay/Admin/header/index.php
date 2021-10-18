@@ -66,8 +66,8 @@
               </a>
                 <div class="item_3">
                   <a href="../statistical/city.php" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;HomeStay</a>        
-                  <!-- <a href="../Statistical/Books.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Books</a>
-                  <a href="../Statistical/Turnover.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Turnover</a> -->
+                  <a href="../Statistical/HomeStayPrice.php" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Giá Tiền</a>
+                  <!-- <a href="../Statistical/Turnover.html" class="list-group-item list-group-item-action text-muted">&emsp;&emsp;Turnover</a> -->
                  
                 </div>
               </div>
