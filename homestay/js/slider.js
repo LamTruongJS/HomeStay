@@ -15,6 +15,7 @@ if (window.outerWidth > 740) {
     },
   });
 } else {
+  
   var swiper = new Swiper('.mySwiper', {
     slidesPerView: 1.5,
     spaceBetween: 1,

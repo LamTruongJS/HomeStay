@@ -61,14 +61,15 @@ html {
   border: none;
 }
 
-.header__item:nth-child(7) {
+.header__item:nth-child(8) {
   margin-right: 237px;
 }
 .header__item:nth-child(3),
 .header__item:nth-child(4),
 .header__item:nth-child(5),
 .header__item:nth-child(6),
-.header__item:nth-child(7) {
+.header__item:nth-child(7),
+.header__item:nth-child(8) {
   height: 73px;
   line-height: 50px;
 }
@@ -76,18 +77,20 @@ html {
 .header__item:nth-child(4) a,
 .header__item:nth-child(5) a,
 .header__item:nth-child(6) a,
-.header__item:nth-child(7) a {
+.header__item:nth-child(7) a,
+.header__item:nth-child(8) a  {
   text-decoration: none;
   color: inherit;
 }
-.header__item:nth-child(4) {
+.header__item:nth-child(3) {
   border-bottom: 3px solid #f65e39;
 }
 .header__item:nth-child(3):hover,
 .header__item:nth-child(4):hover,
 .header__item:nth-child(5):hover,
 .header__item:nth-child(6):hover,
-.header__item:nth-child(7):hover {
+.header__item:nth-child(7):hover,
+.header__item:nth-child(8):hover  {
   border-color: #f65e39;
   background-color: #f65e39;
   color: #fff;

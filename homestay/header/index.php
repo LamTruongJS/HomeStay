@@ -61,6 +61,7 @@
                 </ul>
             </li>
             <li class="header__item"><a href="../type_homestay/index.php">Dịch Vụ</a></li>
+            <li class="header__item"><a href="../cart/index.php">Giỏ Hàng</a></li>
             <li class="header__item"><a>Bài Tập</a></li>
             <li class="header__item"><a>Cá Nhân</a></li>
         </ul>
