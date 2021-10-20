@@ -14,6 +14,12 @@
 </head>
 <body>
    <!-- header-->
+   <?php
+    session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: ../../login');
+    }
+  ?>
    <?php include "../header/index.php" ?> 
    <!-- end header -->
           <nav class="col-md-8">

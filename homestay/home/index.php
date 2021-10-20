@@ -24,12 +24,12 @@
 
     <?php
 
-include "../header/index.php";
-session_start();
-if (!isset($_SESSION['email'])) {
-    header('Location: /homestay/login');
-}
-?>
+    include "../header/index.php";
+    session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: /homestay/login');
+    }
+    ?>
     <!-- slider -->
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

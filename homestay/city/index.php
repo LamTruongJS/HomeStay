@@ -19,6 +19,7 @@
 
     include "../header/index.php";
     $maThanhPho = $_GET['maTP'];
+    $type=$_GET['type']??'';
     session_start();
     if (!isset($_SESSION['email'])) {
         header('Location: /homestay/login');
@@ -66,9 +67,18 @@
                     $sql = "SELECT * FROM home_stay ht,thanh_pho tp where ht.maTP like '$maThanhPho' and ht.maTP =tp.maTP";
                     $result = $conn->query("$sql");
                     $soLuong = mysqli_num_rows($result);
-                    $row = mysqli_fetch_array($result);
-                    echo "<h3>$soLuong homestay tại " . $row["tenTP"] . "</h3>";
-
+                    if($soLuong !=0 ){
+                       
+                        
+                        $row = mysqli_fetch_array($result);
+                        echo "<h3>$soLuong homestay tại " . $row["tenTP"] . "</h3>";
+                    }   
+                    else if($soLuong==0){
+                        $sql2="SELECT * FROM thanh_pho where maTP='$maThanhPho'";
+                        $result2=mysqli_query($conn,$sql2);
+                        $row2 = mysqli_fetch_array($result2);
+                        echo "<h3>Chưa có homestay tại " . $row2["tenTP"] . "</h3>";
+                    }
                     $conn->close();
                     ?>
 
@@ -79,8 +89,11 @@
                         <i class="ti-angle-down content__final__sort--icon"></i>
                     </p>
                     <div class="content__final__sort--toggle">
-                        <p>Giá tăng dần</p>
-                        <p>Giá giảm dần</p>
+                       <?php
+                       echo " <a href='../sort?type=increament&&maTP=".$maThanhPho."'>Giá tăng dần</a>";
+                       echo " <a href='../sort?type=decreament&&maTP=".$maThanhPho."'>Giá giảm dần</a>";
+                       ?>
+                       
                     </div>
                 </div>
             </div>
@@ -90,10 +103,39 @@
                 <div class="row">
                     <?php
                     include('../config.php');
+                    
+                    $row_per_page = 10;
 
-                    $sql = "SELECT * FROM home_stay where maTP ='$maThanhPho' ";
+                    if (!isset($_GET['page'])) {
+                        $_GET['page'] = 1;
+                    }
+
+                    $offset = ($_GET['page'] - 1) * $row_per_page;
+                 
+
+
+                    $query0 ="SELECT * FROM home_stay where maTP ='$maThanhPho' ";
+
+                    $result0 = $conn->query($query0);
+
+                    if($type==''){
+                        $sql = "SELECT * FROM home_stay where maTP ='$maThanhPho' limit $offset, $row_per_page ";
+                    }
+                    else{
+                        if($type=='increament'){
+                            $sql = "SELECT * FROM home_stay where maTP ='$maThanhPho' ORDER BY donGia ASC limit $offset, $row_per_page ";
+                        }
+                        else{
+                            $sql = "SELECT * FROM home_stay where maTP ='$maThanhPho' ORDER BY donGia DESC limit $offset, $row_per_page ";
+                        }
+                    }
+                    
 
                     $result = $conn->query("$sql");
+
+                    $num_rows = $result0->num_rows;
+                    $max_page_count = ceil($num_rows / $row_per_page);
+                    
                     for ($i = 0; $i < $result->num_rows; $i++) {
                         $row = mysqli_fetch_array($result);
                         $phuKien = substr($row['phuKien'], 0, 48);
@@ -114,6 +156,27 @@
                     $conn->close();
                     ?>
                 </div>
+                    <?php
+                        echo "<div class='item__page'>";
+                       
+                        if ($_GET['page'] != 1)
+                            echo "<a class='item__page_item' href =" . $_SERVER['PHP_SELF'] . "?maTP=$maThanhPho&&type=$type&&page=" . ($_GET['page'] - 1) . "> < </a>";
+
+                        for ($i = 1; $i <= $max_page_count; $i++) {
+                            if ($i == $_GET['page']) {
+                                echo '<b class="item__page_item"> ' . $i . ' </b>';
+                            }
+                            else
+                                echo "<a class='item__page_item' href=" . $_SERVER['PHP_SELF'] . "?maTP=$maThanhPho&&type=$type&&page=" . $i . "> " . $i . " </a>";
+                        }
+
+                        if ($_GET['page'] != $max_page_count)
+                            echo "<a class='item__page_item' href =" . $_SERVER['PHP_SELF'] . "?maTP=$maThanhPho&&type=$type&&page=" . ($_GET['page'] + 1) . "> > </a>";
+                      echo "</div>";
+                        $result0->free();
+                       
+                       
+                    ?>
             </div>
         </div>
     </div>

@@ -7,11 +7,11 @@
   html {
     font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   /* :root {
-      --height-header: 74px;
-    } */
-
+    --height-header: 74px;
+  } */
   .header__item:nth-child(3),
   .header__item:nth-child(4),
   .header__item:nth-child(5) {
@@ -98,136 +98,86 @@
     left: 40px;
     transition: all 0.3s ease;
   }
+  /* ---------------------------slider----------------------- */
+  #carouselExampleControls {
+    margin-top: calc(var(--height-header) + 10px);
+    padding: 0 10px;
+  }
+  #carouselExampleControls > .carousel-inner {
+    border-radius: 10px;
 
+    width: 100%;
+    height: auto;
+  }
+  .carousel-inner > .carousel-item {
+    height: 100%;
+  }
+  .carousel-inner > .carousel-item > img {
+    height: 100%;
+  }
   /* -----------------------------Container---------------------------- */
   #container {
-    margin: 100px 5px 0 5px;
+    margin: 20px 5px 0 5px;
     line-height: 1.6;
   }
-  /* -----------------------------------------container------------------------------------------------ */
   .content {
     margin-top: 10px;
     text-align: justify;
   }
-  .content__button {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-  .content__button > button {
-    padding: 0.5em 0.8em;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-right: 0.75rem;
-    margin-bottom: 0.5em;
-    border-radius: 5px;
-    height: 36px;
-    border: 1px solid #ccc;
-    background: transparent;
-    transition: all 0.3s;
-  }
-  .content__button > button:hover {
-    color: #fff;
-    border-color: #f65e39;
-    background-color: #f65e39;
-    cursor: pointer;
-  }
-  /* -----------------------------------------content__two------------------------------------------ */
-  .content__two {
-    font-size: 16px;
-    color: #555;
-    cursor: default;
-  }
-  /* -----------------------------------------content__final------------------------------------------ */
-  .content__final {
-  }
-
-  .content__final__top {
+  /* -------------------------------------Hướng dẫn sử dụng----------------------------------------- */
+  .content__howto {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }
-  .content__title {
-    color: #222;
-    margin-bottom: 10px;
-    order: 2;
-    margin-top: 20px;
-  }
-  .content__final__sort {
-    position: relative;
-    order: 1;
-  }
-  .content__final__sort--title {
-    border: 1px solid #ccc;
-    padding: 8px 20px 8px 12px;
-    font-size: 15px;
-    color: #222;
-    border-radius: 5px;
-  }
-  .content__final__sort--title:hover {
-    border-color: #f65e39;
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .content__final__sort--toggle {
-    position: absolute;
-    top: 50px;
-    left: 10px;
-
-    background-color: white;
-    padding: 5px 0px;
-    display: none;
-    min-width: 245px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .content__final__sort--toggle > a {
-    font-size: 15px;
+  .content__howto > img {
     width: 100%;
-    padding: 5px 12px;
-    text-decoration: none;
-    color:inherit;
-  }
-  .content__final__sort--icon {
-    margin-left: 80px;
-  }
-  .content__final__sort--toggle > a:hover {
-    background-color: #fd9456;
+    padding: 10px 5px;
     cursor: pointer;
   }
-  .content__final__sort:hover .content__final__sort--toggle {
-    display: block;
-    transition: all 0.3s ease;
+  /* ----------------------------------------giới thiệu----------------------------------------------- */
+  .desc {
+    line-height: 2;
   }
-
-  .content__homestay__img {
-    width: 100%;
-    border-radius: 3px;
-    height: 170px;
-    cursor: pointer;
-  }
-  .homestay__item {
-    color: rgb(118, 118, 118);
-    font-size: 14px;
-  }
-  .homestay__name {
-    color: rgb(72, 72, 72);
-    font-size: 1rem;
-    cursor: pointer;
+  .desc_img {
+    width: 150px;
+    height: 80px;
+    margin-left: 30px;
     display: inline-block;
+    padding-right: 0px;
   }
-  .homestay__price {
+  .desc__name {
+    display: inline-block;
+    text-transform: uppercase;
+    word-spacing: 2px;
+    color: #222222;
+  }
+  .desc__sologan {
     font-weight: bold;
-    font-size: 0.875rem;
-    color: #222;
+    padding: 0 5px;
   }
-  .content_favicon {
-    width: 1rem;
-    display: inline-block;
+  .desc__details {
+    text-align: justify;
+    padding: 0 5px;
+  }
+  .desc__payment {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  .desc__img > img {
+    width: 340px;
+    margin-left: 10px;
+  }
+  /* ------------------------------------------blog--------------------------------------*/
+
+  #blog {
+    display: none;
   }
 
   /* ------------------------------------------Footer------------------------------------------------- */
   #footer {
-    margin-top: -30px;
+    margin-top: 0px;
     background-color: #f1f1f1;
     width: 100%;
     height: 200px;
@@ -252,16 +202,4 @@
     color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
-
-  .item__page{
-    text-align: center;
-    margin-bottom: 50px;
-   }
-   .item__page > .item__page_item {
-     padding:8px;
-     border:1px solid #ccc;
-     margin-right: 3px;
-     text-decoration: none;
-     color:#f65e39;
-   }
 }

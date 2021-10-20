@@ -14,6 +14,12 @@
 </head>
 <body>
     <!-- header-->
+    <?php
+    session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: ../../login');
+    }
+  ?>
     <?php include "../header/index.php" ?> 
     <!-- End header -->
           <nav class="col-md-8">
@@ -107,14 +113,14 @@
 
                     for ($i = 1; $i <= $max_page_count; $i++) {
                         if ($i == $_GET['page']) {
-                            echo '<b item__page class="text-muted border border-1 p-2 m-1 text-decoration-none"> ' . $i . ' </b>';
+                            echo '<b  class="item__page text-muted border border-1 p-2 m-1 text-decoration-none"> ' . $i . ' </b>';
                         }
                         else
-                            echo "<a item__page class='border border-1 p-2 m-1 text-decoration-none' href=" . $_SERVER['PHP_SELF'] . "?page=" . $i . "> " . $i . " </a>";
+                            echo "<a class='item__page border border-1 p-2 m-1 text-decoration-none' href=" . $_SERVER['PHP_SELF'] . "?page=" . $i . "> " . $i . " </a>";
                     }
 
                     if ($_GET['page'] != $max_page_count)
-                        echo "<a item__page class='border border-1 p-2 m-1 text-decoration-none' href =" . $_SERVER['PHP_SELF'] . "?page=" . ($_GET['page'] + 1) . "> > </a>";
+                        echo "<ae class='item__pag border border-1 p-2 m-1 text-decoration-none' href =" . $_SERVER['PHP_SELF'] . "?page=" . ($_GET['page'] + 1) . "> > </ae>";
                    
                     echo "</div>";
                     

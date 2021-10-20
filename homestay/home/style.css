@@ -80,6 +80,9 @@ html {
   text-decoration: none;
   color: inherit;
 }
+.header__item:nth-child(3) {
+  border-bottom: 3px solid #f65e39;
+}
 .header__item:nth-child(3):hover,
 .header__item:nth-child(4):hover,
 .header__item:nth-child(5):hover,
