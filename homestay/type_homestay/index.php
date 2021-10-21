@@ -31,7 +31,14 @@
     <div id="container">
         <!-- Căn Hộ -->
         <div class="content">
-
+         <?php
+                $email = $_SESSION['email'];
+                include "../config.php";
+                $sql = "SELECT * FROM user where email='$email'";
+                $result = $conn->query($sql);
+                $row = mysqli_fetch_array($result);
+                echo "<p class='hello_name'>Xin chào, " . $row['name'] . "&nbsp;&nbsp;<a href='../logout'><i class='ti-share-alt'></i></a></p>";
+            ?>
             <h3 class="content__title">Biệt Thự</h3>
             <p class="content__desc">Những địa điểm TEDs-Stay gợi ý cho bạn</p>
             <div class="swiper mySwiper">

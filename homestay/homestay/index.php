@@ -125,6 +125,15 @@
         <div class="content__two grid wide">
             <div class="row">
                 <div class="col l-7  content__desc">
+                     <?php
+                        $email = $_SESSION['email'];
+                        include "../config.php";
+                        $sql = "SELECT * FROM user where email='$email'";
+                        $result = $conn->query($sql);
+                        $row = mysqli_fetch_array($result);
+                        echo "<p class='hello_name'>Xin chào, " . $row['name'] . "&nbsp;&nbsp;<a href='../logout'><i class='ti-share-alt'></i></a></p>";
+                        $conn->close();
+                    ?>
                     <div>
                         <?php
                         include('../config.php');

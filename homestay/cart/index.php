@@ -25,6 +25,15 @@
     }
     ?>
     <div id="container">
+        <?php
+                $email = $_SESSION['email'];
+                include "../config.php";
+                $sql = "SELECT * FROM user where email='$email'";
+                $result = $conn->query($sql);
+                $row = mysqli_fetch_array($result);
+                echo "<p class='hello_name'>Xin chào, " . $row['name'] . "&nbsp;&nbsp;<a href='../logout'><i class='ti-share-alt'></i></a></p>";
+            $conn->close();
+       ?>
         <?php 
             $email= $_SESSION['email'];
             include '../config.php';
