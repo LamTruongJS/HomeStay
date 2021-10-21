@@ -327,3 +327,10 @@ html {
   text-decoration: none;
   color:#f65e39;
 }
+/* fixed cart */
+.fixed__item{
+  display: none;
+}
+.fixed__item__search,.fixed__item__cart,.fixed__item__profile{
+  display: none;
+}

@@ -264,3 +264,11 @@ html {
   color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
+/* fixed cart */
+
+.fixed__item{
+  display: none;
+}
+.fixed__item__search,.fixed__item__cart,.fixed__item__profile{
+  display: none;
+}

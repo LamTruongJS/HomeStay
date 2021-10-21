@@ -27,6 +27,26 @@
             }
         }      
     ?>
+     <!-- fixed item -->
+     <div class='fixed__item'>
+          <img src='../asset/plus-sign.png' class='fixed__plus'>
+      </div>
+      <div class='fixed__item__profile'>
+        <img src='../asset/user.png' class='fixed__cart__img' />
+      </div>
+      <div class='fixed__item__cart'>
+          <a href='../cart/index.php'>
+       
+        <img src='../asset/shopping-cart.png' class='fixed__cart__img' />
+        </a>
+      </div>
+      <div class='fixed__item__search'>
+        <img src='../asset/searching.png' class='fixed__search__img' />
+      </div>
+      <form class='fixed__item__inputSearch'>
+        <input type="text" placeholder="Tìm kiếm" class='fixed__inputSearch__item'/>
+        <input type="submit" class='fixed__inputSearch__btn'value='Tìm Kiếm'/>
+      </form>
     <!-- Header -->
     <div id="header ">
         <ul class="header__menu">

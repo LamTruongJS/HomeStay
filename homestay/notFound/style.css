@@ -395,8 +395,7 @@ html {
   font-weight: bold;
   text-transform: uppercase;
 }
-.blog__col__five {
-}
+
 .blog__col__five > .title {
   font-weight: bold;
   text-transform: uppercase;
@@ -438,4 +437,13 @@ html {
 #footer > .social-list > a:hover {
   color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
+}
+
+/* fixed cart */
+
+.fixed__item{
+  display: none;
+}
+.fixed__item__search,.fixed__item__cart,.fixed__item__profile{
+  display: none;
 }
