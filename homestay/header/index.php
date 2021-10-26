@@ -43,8 +43,8 @@
       <div class='fixed__item__search'>
         <img src='../asset/searching.png' class='fixed__search__img' />
       </div>
-      <form class='fixed__item__inputSearch'>
-        <input type="text" placeholder="Tìm kiếm" class='fixed__inputSearch__item'/>
+      <form class='fixed__item__inputSearch' action='' method='post'>
+        <input type="text" name='tenTP' placeholder="Tìm kiếm" class='fixed__inputSearch__item'/>
         <input type="submit" class='fixed__inputSearch__btn'value='Tìm Kiếm'/>
       </form>
     <!-- Header -->
@@ -82,7 +82,7 @@
             </li>
             <li class="header__item"><a href="../type_homestay/index.php">Dịch Vụ</a></li>
             <li class="header__item"><a href="../cart/index.php">Giỏ Hàng</a></li>
-            <li class="header__item"><a>Bài Tập</a></li>
+            <li class="header__item"><a href='../Ex/'>Bài Tập</a></li>
             <li class="header__item"><a>Cá Nhân</a></li>
         </ul>
     </div>

@@ -1,0 +1,32 @@
+html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  border: 1px solid black;
+}
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  display: block;
+  background-color: orange;
+}
+.content {
+  padding: 10px;
+  display: flex;
+  background-color: pink;
+  justify-content: flex-end;
+}
+.content > .label {
+  width: 200px;
+}
+
+.content > .btn {
+  border: none;
+  padding: 12px 24px;
+  position: relative;
+}

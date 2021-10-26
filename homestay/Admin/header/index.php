@@ -13,7 +13,7 @@
 </head>
 <body>
   <?php
-    session_start();
+   
   ?>
     <!-- header-->
   <nav class="sb-topnav navbar navbar-expand navbar-light bg-light sticky-top">

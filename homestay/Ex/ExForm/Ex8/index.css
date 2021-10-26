@@ -1,0 +1,12 @@
+form {
+  cursor: pointer;
+  border: 1px solid antiquewhite;
+  padding: 1em;
+  border-radius: 1rem;
+  margin-left: 32rem;
+  margin-top: 0rem;
+  background-color: antiquewhite;
+}
+button {
+  width: 5rem;
+}

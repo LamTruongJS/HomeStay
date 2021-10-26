@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 50px;
+}
+p {
+  color: orangered;
+}
+div {
+  margin-top: 10px;
+}
+a {
+  text-decoration: none;
+}
+div:hover {
+  cursor: pointer;
+}
+table {
+  margin-top: 30px;
+}

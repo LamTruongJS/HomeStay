@@ -151,6 +151,20 @@
     font-size: 20px;
     
   }
+  .content__cart__calendar{
+    outline:none;
+    border: 1px solid #ccc;
+    color:#222;
+    font-size:16px;
+    padding: 5px;
+    width: 60%;
+    margin: 5px;
+  } 
+  .content__cart__calendar__title{
+   min-width:100px;
+   margin-left: 0 !important;
+   display: inline-block;
+  }
   .content__cart__desc{
     clear:both;
     color:#666;
@@ -378,5 +392,38 @@
       top:15%;
       transform: translateX(350px);
       transition: all 0.5s ease;
+    }
+
+    /* pay__all */
+    .pay__all{
+      position: fixed;
+      background-color:white;
+      top:-200px;
+      right:50px;
+    
+    }
+    .pay__all__shortcut{
+      display:block;
+      position: fixed;
+      bottom:90px;
+      left:20px;
+      z-index:2000;
+    }
+    .pay__all_shortcut__img{
+      width: 40px;
+    }
+    .pay__all__shortcut:hover + .pay__all{
+      position: fixed;
+      background-color:white;
+      transform: translateY(350px);
+      transition: all 0.5s ease;
+      z-index:1000;
+    }
+    .pay__all:hover{
+      position: fixed;
+      background-color:white;
+      transform: translateY(350px);
+      transition: all 0.5s ease;
+      z-index:1000;
     }
 }

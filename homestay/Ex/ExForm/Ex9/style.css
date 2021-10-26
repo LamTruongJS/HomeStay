@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: blue !important;
+}
+.menu {
+  background: radial-gradient(
+    circle,
+    rgba(21, 22, 227, 0.6334908963585435) 100%,
+    rgba(135, 158, 245, 0.8155637254901961) 100%
+  );
+  min-width: 100%;
+  min-height: 50px;
+}
+.menu > .content {
+  line-height: 50px;
+  min-height: 50px;
+}
+.menu > .content > .item {
+  display: inline-block;
+  min-height: 50px;
+  padding: 12px 24px;
+  font-size: 20px;
+}
+.menu > .content > .item:hover {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+.item > a {
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  display: block;
+  text-align: center;
+}
