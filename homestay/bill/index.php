@@ -40,13 +40,13 @@
             $maUser=$row1['ID'];
 
             //truy vấn hoa đơn
-            $sql2="SELECT * FROM hoa_don where maUser ='$maUser'";
+            $sql2="SELECT * FROM hoa_don where maUser ='$maUser' ORDER BY thoiGian DESC ";
             $result2=mysqli_query($conn,$sql2);
            
 
             
 
-            for($i=0;$i<$result2->num_rows;$i++){
+            for($i=0; $i<$result2->num_rows; $i++){
 
                 $row2=mysqli_fetch_array($result2);
                 $maHST= $row2['maHST'];

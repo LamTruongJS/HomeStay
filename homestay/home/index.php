@@ -116,87 +116,36 @@
             <p class="content__desc">Những địa điểm TEDs-Stay gợi ý cho bạn</p>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/Bavi.jpg" class="slider__beetwen__pros" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/BaVi_2.jfif" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/BaVi_3.png" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/HoaBinh.jpg" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/LuongSon.jpg" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/PhuYen.jfif" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/SocSon.jpg" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/SocSon_2.jpg" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slider__beetwen__pros">
-                        <img src="../asset/Famous/TamDao.jpg" />
-                        <div class="slider__beetwen__pros__desc">
-                            <p>BAVI Padme Home - Bungalow 2</p>
-                            <p>3 khách·1 phòng ngủ·1 phòng tắm</p>
-                            <p>800,000₫/đêm</p>
-                            <p>Ba Vì, Hà Nội, Vietnam</p>
-                        </div>
-                    </div>
+                    <?php 
+                        include '../config.php';
+                        $sql1="SELECT COUNT(maHST), maHST FROM hoa_don GROUP BY maHST order by count(maHST) DESC";
+                        $result1= mysqli_query($conn,$sql1);
+                        for($i=0;$i<$result1->num_rows;$i++){
+                            $row1= mysqli_fetch_array($result1);
+                            $maHST=$row1['maHST'];
+                            
+                            $sql2="SELECT * FROM home_stay where maHStay ='$maHST'";
+                            $result2=mysqli_query($conn,$sql2);
+                            $row2=mysqli_fetch_array($result2);
+                            $tenHStay = substr($row2["tenHStay"], 0, 12);
+                            $phuKien = substr($row2["phuKien"], 0, 31);
+                            $donGia = 0;
+                            if (strlen($row2['donGia']) >= 7) {
+                                $donGia = substr($row2["donGia"], -7, 1) . "," . substr($row2["donGia"], -6, 3) . "," . substr($row2["donGia"], -3);
+                            } else
+                                $donGia = substr($row2["donGia"], -6, 3) . "," . substr($row2["donGia"], -3);
+
+                            echo '<a style="text-decoration:none" class="swiper-slide slider__beetwen__pros" href=../homestay?maHStay=' . $row2['maHStay'] . '>';
+                            echo "<img src='../".$row2['img_one']."' class='slider__beetwen__pros' />";
+                            echo " <div class='slider__beetwen__pros__desc'>";
+                            echo "<p>$tenHStay</p>";
+                            echo "<p>$phuKien</p>";
+                            echo "<p>$donGia ₫ /đêm</p>";
+                            echo "<p>".$row2['diaChi']."</p>";
+                            echo "</div>";
+                            echo "</a>";
+                        }
+                    ?>      
                 </div>
             </div>
         </div>
