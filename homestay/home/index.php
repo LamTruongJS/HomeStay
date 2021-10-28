@@ -135,7 +135,7 @@
                             } else
                                 $donGia = substr($row2["donGia"], -6, 3) . "," . substr($row2["donGia"], -3);
 
-                            echo '<a style="text-decoration:none" class="swiper-slide slider__beetwen__pros" href=../homestay?maHStay=' . $row2['maHStay'] . '>';
+                            echo '<a style="text-decoration:none" class="swiper-slide slider__beetwen__pros" href=../homestay?maHStay=' . $row2['maHStay'] . '>';   
                             echo "<img src='../".$row2['img_one']."' class='slider__beetwen__pros' />";
                             echo " <div class='slider__beetwen__pros__desc'>";
                             echo "<p>$tenHStay</p>";

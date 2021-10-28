@@ -57,16 +57,16 @@ if (isset($_POST['register'])) {
             <h4 class="form__register__title">Đăng Kí</h4>
             <div class="form__register__username">
                 <p class="form__register__username--title">Tên của bạn</p>
-                <input type="text" class="form__register__username--input" name="username" required maxlength="50" />
+                <input type="text" class="form__register__username--input" value='<?php if(isset($_POST['username'])) echo $_POST['username']; else echo '' ?>' name="username" required maxlength="50" />
             </div>
             <div class="form__register__email">
                 <p class="form__register__email--title">Email của bạn</p>
-                <input type="email" class="form__register__email--input" name="email" required maxlength="50" />
+                <input type="email" class="form__register__email--input" value='<?php if(isset($_POST['email'])) echo $_POST['email']; else echo '' ?>' name="email" required maxlength="50" />
             </div>
             <p class="mess_notifer"><?php if(isset($errEmail)) echo $errEmail; else echo '' ?></p>
             <div class="form__register__password">
                 <p class="form__register__password--title">Mật khẩu</p>
-                <input type="password" class="form__register__password--input" name="password" required
+                <input type="password" class="form__register__password--input" value='<?php if(isset($_POST['password'])) echo $_POST['password']; else echo '' ?>' name="password" required
                     maxlength="20" />
                 <div class="form__register__password__icon">
                     <i class="far fa-eye eyes_password"></i>
@@ -75,7 +75,7 @@ if (isset($_POST['register'])) {
             </div>
             <div class="form__register__confirm__password">
                 <p class="form__register__confirm__password--title">Nhập lại mật khẩu</p>
-                <input type="password" class="form__register__confirm__password--input" name="confirm_password" required
+                <input type="password" class="form__register__confirm__password--input" value='<?php if(isset($_POST['confirm_password'])) echo $_POST['username']; else echo '' ?>' name="confirm_password" required
                     maxlength="20" />
                 <div class="form__register__confirm__password__icon">
                     <i class="far fa-eye eyes_password_confirm"></i>
