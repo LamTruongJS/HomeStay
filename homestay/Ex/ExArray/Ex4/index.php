@@ -19,7 +19,7 @@
             return  $result= "Tìm thấy $numberSearch tại vị trí $location của mảng";
             }   
             else{
-                return $result ="Không tìm thấy số $numberSearch trong mảng";
+                return $result ="Không tìm thấy $numberSearch trong mảng";
         
             }
        }
@@ -34,11 +34,13 @@
         <div class="title">Tìm kiếm</div>
         <div class="content">
             <label class="label">Nhập mảng:</label>
-            <input type="text" name="arrayInput" value="<?php if(isset($_POST['arrayInput'])) echo $_POST['arrayInput'];?>" />
+            <input type="text" name="arrayInput"
+                value="<?php if(isset($_POST['arrayInput'])) echo $_POST['arrayInput'];?>" />
         </div>
         <div class="content">
             <label class="label">Nhập số cần tìm </label>
-            <input type="text" name="numberSearch" value="<?php if(isset($_POST['numberSearch'])) echo $_POST['numberSearch'];?>"  />
+            <input type="text" name="numberSearch"
+                value="<?php if(isset($_POST['numberSearch'])) echo $_POST['numberSearch'];?>" />
         </div>
         <div class="content">
             <input type="submit" class="btn" value="Tìm kiếm"></u>
@@ -51,7 +53,8 @@
             <label class="label">Kết quả tìm kiếm:</label>
             <input type="text" name="result" class="disabled" readonly value="<?php echo $result?>" />
         </div>
-        
+        <div style='background-color: pink; text-align: center;'>(Các phần tử trong mảng phải cách nhau bằng dấu ",")
+        </div>
     </form>
 
 </body>

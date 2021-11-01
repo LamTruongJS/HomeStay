@@ -13,15 +13,16 @@
 
     <?php
         $chieudai =$_POST['chieudai'] ?? 0;
-       
         $chieurong =$_POST['chieurong']??0;
-        $dientich=$_POST['dientich']??0;
-        if(min($chieudai, $chieurong) >0 && $chieudai!=$chieurong){
-            $dientich= ($chieudai * $chieurong);
-        }
-        else {
-            $dientich="Errol"; 
-        }   
+        $dientich=$_POST['dientich']??'';
+       if(isset($_POST['tinh'])){
+            if(min($chieudai, $chieurong) >0 && $chieudai!=$chieurong){
+                $dientich= ($chieudai * $chieurong);
+            }
+            else {
+                $dientich="Errol"; 
+            } 
+       }  
     ?>
     <form action="" class="container" method="POST">
 
@@ -38,10 +39,11 @@
         </div>
         <div class="content">
             <label class="label">Diện Tích:</label>
-            <input type="text" name="dientich" class="disabled" value=<?php echo $dientich ?> readonly>
+            <input type="text" name="dientich" class="disabled"
+                value="<?php if(isset($dientich)) echo $dientich; else echo "" ?>" readonly>
         </div>
         <div class="content">
-            <input type="submit" class="btn" value="Tính"></u>
+            <input type="submit" name='tinh' class="btn" value="Tính"></u>
         </div>
 
     </form>

@@ -13,10 +13,13 @@
 
     <?php
         $name =$_POST['name'] ?? "";
-        $chisocu=$_POST['chisocu'] ?? "0";
-        $chisomoi=$_POST['chisomoi'] ?? "0";
+        $chisocu=$_POST['chisocu'] ?? "";
+        $chisomoi=$_POST['chisomoi'] ?? "";
         $dongia=$POST['dongia'] ?? "20000";
-        $price = ($chisomoi - $chisocu)*$dongia;
+        $price='';
+        if(isset($_POST['tinh'])){
+            $price = ($chisomoi - $chisocu)*$dongia;
+        }
     ?>
     <form action="" class="container" method="POST">
 
@@ -29,13 +32,13 @@
         <div class="content">
             <label class="label">Chỉ Số Cũ:</label>
             <input type="text" name="chisocu"
-                value="<?php if(isset($_POST['chisocu'])) echo $_POST['chisocu']; else echo "0"?>" />
+                value="<?php if(isset($_POST['chisocu'])) echo $_POST['chisocu']; else echo ""?>" />
             <span class="unit">(KW)</span>
         </div>
         <div class="content">
             <label class="label">Chỉ Số Mới:</label>
             <input type="text" name="chisomoi"
-                value="<?php if(isset($_POST['chisomoi'])) echo $_POST['chisomoi'];else echo "0"?>" />
+                value="<?php if(isset($_POST['chisomoi'])) echo $_POST['chisomoi'];else echo ""?>" />
             <span class="unit">(KW)</span>
         </div>
         <div class="content">
@@ -46,11 +49,11 @@
         </div>
         <div class="content">
             <label class="label">Số Tiền Thanh Toán:</label>
-            <input type="text" name="price" class="disabled" value=<?php echo $price ?> readonly />
-            <span class="unit">(VNĐ)</span>
+            <input type="text" name="price" class="disabled" value="<?php echo $price ?>" readonly />
+            <span class=" unit">(VNĐ)</span>
         </div>
         <div class="content">
-            <input type="submit" class="btn" value="Tính"></u>
+            <input type="submit" name='tinh' class="btn" value="Tính"></u>
         </div>
 
     </form>

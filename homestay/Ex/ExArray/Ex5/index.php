@@ -12,7 +12,7 @@
 <body>
 
     <?php
-       $number_list =$_POST['number_list'] ?? 0;
+       $number_list =$_POST['number_list'] ?? '';
        $numberToReplace=$_POST['numberToReplace'] ?? '';
        $numberReplace =$_POST['numberReplace']??'';
        $array_temp = explode(",", $number_list);
@@ -54,16 +54,19 @@
         <div class="title">Thay Thế</div>
         <div class="content">
             <label class="label">Nhập các phần tử:</label>
-            <input type="text" name="number_list" value="<?php if(isset($_POST['number_list'])) echo $_POST['number_list'];?>" />
+            <input type="text" name="number_list"
+                value="<?php if(isset($_POST['number_list'])) echo $_POST['number_list'];?>" />
         </div>
         <div class="content">
             <label class="label">Giá trị cần thay thế:</label>
-            <input type="text" name="numberToReplace" value="<?php if(isset($_POST['numberToReplace'])) echo $_POST['numberToReplace'];?>" />
+            <input type="text" name="numberToReplace"
+                value="<?php if(isset($_POST['numberToReplace'])) echo $_POST['numberToReplace'];?>" />
         </div>
         <h4><?php echo $notFound; ?></h4>
         <div class="content">
             <label class="label">Giá trị thay thế:</label>
-            <input type="text" name="numberReplace" value="<?php if(isset($_POST['numberReplace'])) echo $_POST['numberReplace'];?>" />
+            <input type="text" name="numberReplace"
+                value="<?php if(isset($_POST['numberReplace'])) echo $_POST['numberReplace'];?>" />
         </div>
         <div class="content">
             <input type="submit" class="btn" value="Thực Hiện"></u>

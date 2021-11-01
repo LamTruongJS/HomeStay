@@ -19,10 +19,12 @@
       
         $KQ=$_POST['KQ']?? "Đang xét";
         $sum= $toan +$ly+$hoa ?? 0;
-        if(min($toan,$ly,$hoa)!=0 && $sum >=$diemchuan){
-            $KQ ="Đậu";
+        if(isset($_POST['tinh'])){
+            if(min($toan,$ly,$hoa)!=0 && $sum >=$diemchuan){
+                $KQ ="Đậu";
+            }
+            else $KQ="Rớt";
         }
-        else $KQ="Rớt"
         
       
     ?>
@@ -49,14 +51,14 @@
         </div>
         <div class="content">
             <label class="label">Tổng Điểm:</label>
-            <input type="text" name="sum" style="background-color:inherit" value=<?php echo $sum ?> readonly>
+            <input type="text" name="sum" style="background-color:inherit" value="<?php echo $sum ?>" readonly>
         </div>
         <div class="content">
             <label class="label">Kết Quả Thi:</label>
-            <input type="text" name="KQ" style="background-color:inherit" value=<?php echo $KQ ?> readonly>
+            <input type="text" name="KQ" style="background-color:inherit" value="<?php echo $KQ ?>" readonly>
         </div>
         <div class="content">
-            <input type="submit" class="btn" value="Xem Kết Quả"></u>
+            <input type="submit" name='tinh' class="btn" value="Xem Kết Quả"></u>
         </div>
 
     </form>

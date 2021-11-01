@@ -14,15 +14,17 @@
     <?php
         $bankinh =$_POST['bankinh'] ?? "0";
         $PI=3.14;
-        $chuvi=$_POST['chuvi'] ?? "0";
-        $dientich=$_POST['dientich']?? "0";
-        if(isset($_POST['bankinh'])){
-            $dientich= $PI * $bankinh *$bankinh;
-            $chuvi =2 *$PI * $bankinh;
-        }
-        else {
-            $dientich="0";
-            $chuvi="0"; 
+        $chuvi=$_POST['chuvi'] ?? "";
+        $dientich=$_POST['dientich']?? "";
+        if(isset($_POST['tinh'])){
+                if(isset($_POST['bankinh']) && $_POST['bankinh'] >0){
+                    $dientich= $PI * $bankinh *$bankinh;
+                    $chuvi =2 *$PI * $bankinh;
+                }
+                else {
+                    $dientich="errol";
+                    $chuvi="errol"; 
+                }
         }   
     ?>
     <form action="" class="container" method="POST">
@@ -35,14 +37,14 @@
         </div>
         <div class="content">
             <label class="label">Diện Tích:</label>
-            <input type="text" name="dientich" class="disabled" value=<?php echo $dientich ?> readonly>
+            <input type="text" name="dientich" class="disabled" value="<?php echo $dientich ?>" readonly>
         </div>
-        <div class="content">
+        <div class=" content">
             <label class="label">Chu Vi:</label>
-            <input type="text" name="chuvi" class="disabled" value=<?php echo $chuvi ?> readonly>
+            <input type="text" name="chuvi" class="disabled" value="<?php echo $chuvi ?>" readonly>
         </div>
         <div class="content">
-            <input type="submit" class="btn" value="Tính"></u>
+            <input type="submit" name='tinh' class="btn" value="Tính"></u>
         </div>
 
     </form>

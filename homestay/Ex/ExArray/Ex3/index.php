@@ -23,44 +23,54 @@
         function print_array($arrayNumber,$strArray){
             return $strArray = implode("  ", $arrayNumber);
         }
-        function max_array($arrayNumber,$maxArray){
-            return $maxArray = max($arrayNumber);
+        function max_array($arrayNumber){
+           $maxNumber =0;
+           for($i=0;$i<count($arrayNumber);$i++){
+              $maxNumber = $arrayNumber[$i] > $maxNumber ? $arrayNumber[$i] : $maxNumber;
+           }
+           return $maxNumber;
         }
-        function min_array($arrayNumber,$minArray){
-            return $minArray = min($arrayNumber);
+        function min_array($arrayNumber){
+            $minNumber =0;
+            for($i=0;$i<count($arrayNumber);$i++){
+               $minNumber = $arrayNumber[$i] > $minNumber ? $arrayNumber[$i] : $minNumber;
+            }
+            return $minNumber;
         }
+      if(isset($_POST['tinh'])){
         $countNumber =$_POST['countNumber'] ?? 0;
         $arrayNumber = array();
         $strArray ='';
-        $maxArray=0;
-        $minArray =0;
         $arrayNumber= create_array($arrayNumber,$countNumber);
         $strArray = print_array($arrayNumber,$strArray);  
-        $maxArray = max_array($arrayNumber,$maxArray);
-        $minArray = min_array($arrayNumber,$minArray);
+        $maxArray = max_array($arrayNumber) ?? '';
+        $minArray = min_array($arrayNumber)?? '';
+      }
     ?>
     <form action="index.php" class="container" method="POST">
         <div class="title">Phát sinh mảng và tính toán</div>
         <div class="content">
             <label class="label">Nhập số phần tử:</label>
-            <input type="text" name="countNumber" value="<?php if(isset($_POST['countNumber'])) echo $_POST['countNumber'];?>" />
+            <input type="text" name="countNumber"
+                value="<?php if(isset($_POST['countNumber'])) echo $_POST['countNumber'];?>" />
         </div>
         <div class="content">
-            <input type="submit" class="btn" value="Phát sinh và tính toán"></u>
+            <input type="submit" name='tinh' class="btn" value="Phát sinh và tính toán"></u>
         </div>
         <div class="content">
             <label class="label">Mảng: </label>
-            <input type="text"  class="disabled" value="<?php echo $strArray?>" readonly />
+            <input type="text" class="disabled" value="<?php echo $strArray??'' ?>" readonly />
         </div>
         <div class="content">
             <label class="label">GTLN(Max) trong mảng: </label>
-            <input type="text" name="maxArray" class="disabled" value="<?php echo $maxArray ?>" readonly />
+            <input type="text" name="maxArray" class="disabled" value="<?php echo $maxArray??'' ?>" readonly />
         </div>
         <div class="content">
             <label class="label">GTNN(min) trong mảng: </label>
-            <input type="text" name="minArray" class="disabled" value="<?php echo $minArray ?>" readonly />
+            <input type="text" name="minArray" class="disabled" value="<?php echo $minArray??'' ?>" readonly />
         </div>
-
+        <div style="background-color: pink; text-align: center;"><span style='color:red'>Chú ý: </span>Các phần tử có
+            giá trị từ 0->20</div>
 
 
     </form>

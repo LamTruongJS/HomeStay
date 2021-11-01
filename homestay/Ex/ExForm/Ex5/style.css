@@ -5,34 +5,43 @@ html {
   justify-content: center;
   align-items: center;
 }
+
 .container {
   border: 1px solid black;
 }
+
 .title {
   align-items: center;
+  text-align: center;
   font-size: 20px;
+  text-transform: uppercase;
+  color: white;
   display: block;
-  background-color: orange;
+  background-color: rgb(42, 42, 250);
 }
+
 .content {
   padding: 10px;
   display: flex;
-  background-color: pink;
+  background-color: rgb(116, 116, 221);
   justify-content: flex-end;
 }
-.content > .label {
+
+.content>.label {
   width: 200px;
 }
+
 .disabled {
   background-color: inherit;
 }
 
-.content > .btn {
+.content>.btn {
   border: none;
   padding: 12px 24px;
   position: relative;
 }
-.content > .unit {
+
+.content>.unit {
   margin-left: 5px;
   min-width: 50px;
 }

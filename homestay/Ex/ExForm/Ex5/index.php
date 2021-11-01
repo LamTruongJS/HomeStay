@@ -16,22 +16,24 @@
         $EndTime =$_POST['EndTime']??0;
         $notice =" ";
         $sum=0;
+       if(isset($_POST['tinh'])){
         if($EndTime > $StartTime){
-           if($StartTime >=10 && $StartTime<=24 && $EndTime<=24){
-            $hour = $EndTime-$StartTime;
-            if($EndTime < 17){
-                $sum=$hour *20000;
+            if($StartTime >=10 && $StartTime<=24 && $EndTime<=24){
+             $hour = $EndTime-$StartTime;
+             if($EndTime < 17){
+                 $sum=$hour *20000;
+             }
+            else if(17<= $StartTime && $EndTime<= 24){
+                $sum = $hour *45000;
             }
-           else if(17<= $StartTime && $EndTime<= 24){
-               $sum = $hour *45000;
-           }
-            else{
-                $sum = (17-$StartTime)*20000 + ($EndTime - 17)*45000;
+             else{
+                 $sum = (17-$StartTime)*20000 + ($EndTime - 17)*45000;
+             }
             }
-           }
+            else $notice ="Khung Giờ Không Hợp Lệ!";
+         }
            else $notice ="Khung Giờ Không Hợp Lệ!";
-        }
-          else $notice ="Khung Giờ Không Hợp Lệ!"
+       }
     ?>
     <form action="" class="container" method="POST">
 
@@ -56,7 +58,7 @@
 
         <div class="content">
             <span style="margin-right: 90px; color:red"><?php echo $notice ?></span>
-            <input type="submit" class="btn" value="Tính Tiền"></u>
+            <input type="submit" name='tinh' class="btn" value="Tính Tiền"></u>
         </div>
 
     </form>

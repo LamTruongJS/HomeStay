@@ -54,6 +54,9 @@ session_start();
     ?>
 
     <div class="container">
+    <video class="video_background" preload="auto" autoplay="true" loop="loop" muted volume="0">
+    <source src="../asset/Luxury Travel Agency - Private Travel Designer - Bespoke Tours.mp4" type="video/mp4"/>
+    </video>
         <form class="form__login" action="index.php" method="POST">
             <a href="../register" class="text__register">_Đăng Kí_</a>
             <h4 class="form__Login__title">Đăng Nhập</h4>

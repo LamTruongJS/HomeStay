@@ -52,6 +52,9 @@ if (isset($_POST['register'])) {
 
 <body>
     <div class="container">
+    <video class="video_background" preload="auto" autoplay="true" loop="loop" muted volume="0">
+    <source src="../asset/Luxury Travel Agency - Private Travel Designer - Bespoke Tours.mp4" type="video/mp4"/>
+    </video>
         <form class="form__register" action="index.php" method="post">
             <a href="../login/" class="text__login">_Đăng Nhập_</a>
             <h4 class="form__register__title">Đăng Kí</h4>

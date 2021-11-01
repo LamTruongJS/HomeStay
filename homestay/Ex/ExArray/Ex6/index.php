@@ -12,18 +12,37 @@
 <body>
 
     <?php
-       $array_input =$_POST['array_input'] ?? 0;
+       $array_input =$_POST['array_input'] ?? '';
         $array_temp = explode(",", $array_input);
         function increaseArray($array_temp){
-            sort($array_temp);
+            for($i=0;$i<count($array_temp);$i++){
+                for($j=$i+1;$j<count($array_temp);$j++){
+                    if($array_temp[$i] > $array_temp[$j]){
+                        $temp=$array_temp[$i];
+                        $array_temp[$i]=$array_temp[$j];
+                        $array_temp[$j]=$temp;
+                    }
+                }
+            }
+            // sort($array_temp);
             $res=implode(",", $array_temp);
             return $res;
-          
+           
         }
         function decreaseArray($array_temp){
-            rsort($array_temp);
+            for($i=0;$i<count($array_temp);$i++){
+                for($j=$i+1;$j<count($array_temp);$j++){
+                    if($array_temp[$i] < $array_temp[$j]){
+                        $temp=$array_temp[$i];
+                        $array_temp[$i]=$array_temp[$j];
+                        $array_temp[$j]=$temp;
+                    }
+                }
+            }
+            // rsort($array_temp);
             $res=implode(",", $array_temp);
             return $res;
+           
         }
         $array_increase = increaseArray($array_temp)??"";
         $array_decrease= decreaseArray($array_temp)??"";
