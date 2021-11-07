@@ -1,0 +1,285 @@
+@media only screen and (max-width: 46.25em) {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  /* :root {
+      --height-header: 74px;
+    } */
+  .header__item:nth-child(3),
+  .header__item:nth-child(4),
+  .header__item:nth-child(5) {
+    padding: 15px 9px;
+    min-width: 87px;
+    text-align: center;
+  }
+  .header__item:nth-child(3) a,
+  .header__item:nth-child(4) a,
+  .header__item:nth-child(5) a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .header__item:nth-child(2),
+  .header__item:nth-child(6),
+  .header__item:nth-child(7),
+  .header__item:nth-child(8) {
+    display: none;
+  }
+  .header__menu {
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    color: #666;
+    border-bottom: 0.5px solid gainsboro;
+    justify-content: flex-start;
+    padding: 0px;
+  }
+  .header__item {
+    display: inline-block;
+    line-height: 100%;
+  }
+  .header__item__img {
+    display: inline-block;
+    padding-top: 20px;
+    width: 100px;
+    height: auto;
+  }
+  .header__item > .navbar > li {
+    display: inline-block;
+    width: 120px;
+  }
+  .header__item > .navbar > li:nth-child(odd) {
+    padding-left: 10px;
+    text-align: left;
+  }
+  .header__item > .navbar > li:nth-child(even) {
+    margin-left: 50px;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .header__item .navbar li {
+    list-style: none;
+  }
+  .header__item .navbar li > a {
+    text-decoration: none;
+    color: #222;
+    padding-left: 10px;
+  }
+
+  .header__item > .navbar > li:hover > a {
+    color: #fff;
+    border-color: #f65e39;
+    background-color: #f65e39;
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .header__item > .navbar > li:hover {
+    border-color: #f65e39;
+    background-color: #f65e39;
+    color: #fff !important;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .header__item:hover > .navbar {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    transition: all 0.3s ease;
+  }
+  /* ---------------------------------------container------------------------------------------------ */
+  #container {
+    margin: 50px 10px 200px;
+   line-height:1.6;
+    
+  }
+  .content{
+    margin:0
+  }
+  .content__first{
+      background-color:#f65e39;
+      
+  }
+  .content__first__img{
+      width: 200px;
+      min-width: 200px;
+      max-width: 200px;
+      height: 180px;
+      min-height:180px;
+      max-height: 180px;
+      position:absolute;
+      right:auto;
+      left: 40px;
+      top:0px;
+  }
+  .content__first__name{
+      padding-top:200px;
+      
+  }
+  /* ------------------------------------------Footer------------------------------------------------- */
+  #footer {
+    margin-top: 0px;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 200px;
+  }
+  #footer > .social-list {
+    padding-top: 80px;
+    width: 100%;
+    text-align: center;
+  }
+  #footer > .social-list > a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+  }
+  #footer .footer-by {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 15px 0;
+  }
+  #footer .footer-by:hover,
+  #footer > .social-list > a:hover {
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  /* fixed_cart */
+  .fixed__item {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: -6px;
+    z-index: 100;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 1px solid;
+    border-radius: 0 20px 20px 0;
+    background-color: white;
+    padding: 5px 10px;
+  }
+  .fixed__plus {
+    width: 30px;
+  }
+
+  .fixed__item__profile {
+    position: fixed;
+    top: 50%;
+    left: -50px;
+    display: block;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  .fixed__profile__img {
+    width: 30px;
+  }
+
+  .fixed__item__cart {
+    position: fixed;
+    top: 50%;
+    left: -50px;
+    display: block;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  .fixed__cart__img {
+    width: 30px;
+  }
+
+  .fixed__item__search {
+    position: fixed;
+    top: 50%;
+    left: -50px;
+    display: block;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  .fixed__search__img {
+    width: 30px;
+  }
+  .fixed__item:hover ~ .fixed__item__profile {
+    position: fixed;
+    top: 43%;
+    z-index: 100;
+    cursor: pointer;
+    transform: translateX(78px);
+    transition: all 0.3s ease;
+  }
+
+  .fixed__item:hover ~ .fixed__item__cart {
+    position: fixed;
+    top: 50%;
+    z-index: 100;
+    cursor: pointer;
+    transform: translateX(109px);
+    transition: all 0.3s ease;
+  }
+  .fixed__item:hover ~ .fixed__item__search {
+    position: fixed;
+    top: 57%;
+    z-index: 100;
+    cursor: pointer;
+    transform: translateX(78px);
+    transition: all 0.3s ease;
+  }
+  .fixed__item__inputSearch {
+    position: fixed;
+    top: 50%;
+    left: -300px;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .fixed__inputSearch__item {
+    display: inline;
+    width: 69%;
+    padding: 8px;
+    height: 40px;
+    border: none;
+    margin-right: 0px;
+    outline: none;
+  }
+  .fixed__inputSearch__btn {
+    display: inline-block;
+    padding: 8px;
+    border: none;
+    color: #ccc;
+    height: 40px;
+    margin-left: 0px;
+    background-color: none;
+  }
+  .fixed__item__search:hover ~ .fixed__item__inputSearch {
+    position: fixed;
+    top: 15%;
+    transform: translateX(350px);
+    transition: all 0.5s ease;
+  }
+  .fixed__item__inputSearch:hover {
+    position: fixed;
+    top: 15%;
+    transform: translateX(350px);
+    transition: all 0.5s ease;
+  }
+}

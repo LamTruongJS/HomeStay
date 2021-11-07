@@ -44,6 +44,7 @@
             $email= $_SESSION['email'];
             $date=getdate();
             $dateArrive= $date['year']."-".$date['mon']."-".$date['mday'];
+            $dateArrive = date('Y-m-d', strtotime($dateArrive));
             $dateLeave= date('Y-m-d', strtotime($dateArrive. ' + 1 days'));
             $datemax= date('Y-m-d', strtotime($dateArrive. ' + 1 month'));
             $maUser=$row1['ID'];

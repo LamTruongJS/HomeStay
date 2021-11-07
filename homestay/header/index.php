@@ -32,6 +32,7 @@
           <img src='../asset/plus-sign.png' class='fixed__plus'>
       </div>
       <div class='fixed__item__profile'>
+      <a href='../profile/index.php'>
         <img src='../asset/user.png' class='fixed__cart__img' />
       </div>
       <div class='fixed__item__cart'>
@@ -83,7 +84,7 @@
             <li class="header__item"><a href="../type_homestay/index.php">Dịch Vụ</a></li>
             <li class="header__item"><a href="../cart/index.php">Giỏ Hàng</a></li>
             <li class="header__item"><a href='../Ex/'>Bài Tập</a></li>
-            <li class="header__item"><a>Cá Nhân</a></li>
+            <li class="header__item"><a href='../profile/index.php'>Cá Nhân</a></li>
         </ul>
     </div>
     <!-- End Header -->
