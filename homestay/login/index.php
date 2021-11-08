@@ -16,11 +16,13 @@ session_start();
 
 <body>
     <?php
+      $email = $_POST['email'] ??'';
+      $password = $_POST['password']??'';
     if (isset($_POST['login'])) {
         $error = '';
-        $email = $_POST['email'];
+      
         $remember = $_POST['remember'] ?? '';
-        $password = $_POST['password'];
+       
         $_SESSION['remember'] = false;
         include '../config.php';
         $sql = "SELECT * from user s where s.email = '$email' and s.password = '$password'";
@@ -63,12 +65,12 @@ session_start();
             <div class="form__login__username">
                 <p class="form__login__username--title">Email của bạn</p>
                 <input type="email" class="form__login__username--input" name="email" required value="<?php if (isset($_COOKIE['email'])) echo $_COOKIE['email'];
-                                                                                                        else echo '' ?>" />
+                                                                                                        else echo $email ?>" />
             </div>
             <div class="form__login__password">
                 <p class="form__login__password--title">Mật khẩu</p>
                 <input type="password" class="form__login__password--input" name="password" required value="<?php if (isset($_COOKIE['password'])) echo $_COOKIE['password'];
-                                                                                                            else echo '' ?>" />
+                                                                                                            else echo $password ?>" />
                 <div class="form__login__password__icon">
                     <i class="far fa-eye eyes_password"></i>
                     <i class="far fa-eye-slash disable eyesHidden_password"></i>
