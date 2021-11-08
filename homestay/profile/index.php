@@ -37,7 +37,7 @@
        ?>
           <div class='content'>
            <div class='content__first'>
-                <img src='../asset/DaLat.png' class='content__first__img' alt=''>
+                <img src='../asset/avatar.jpg' class='content__first__img' alt=''>
                 <div class='content__first__name'>
                     <h1>Lê Lâm Trường</h1>
                     <span>Lớp 60.CNTT-2</span>

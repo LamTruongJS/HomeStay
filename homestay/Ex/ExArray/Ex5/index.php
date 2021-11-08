@@ -12,37 +12,47 @@
 <body>
 
     <?php
+       
        $number_list =$_POST['number_list'] ?? '';
        $numberToReplace=$_POST['numberToReplace'] ?? '';
        $numberReplace =$_POST['numberReplace']??'';
-       $array_temp = explode(",", $number_list);
+       $array_temp = explode(" ", $number_list);
        $notFound='';
        $oldArray= array();
        $newArray=array();
        function print_old_array($array_temp){
+          
             $res ='';
             for($i=0;$i<count($array_temp);$i++){
                 $res .="$array_temp[$i] ";
             }
             return $res;
         }
-        function replace_array($number_list, $numberToReplace, $numberReplace){
-            return str_replace($numberToReplace, $numberReplace,$number_list);
+        function replace_array($array_temp, $numberToReplace, $numberReplace){
+            // return str_replace($numberToReplace, $numberReplace, $array_temp);
+            // C2
+         
+            for($i=0;$i<count($array_temp); $i++){
+                if($array_temp[$i] === $numberToReplace){
+                   $array_temp[$i]=$numberReplace; 
+                }
+            }
+            return $array_temp; //return array
         }
         
-        function print_new_array($new_temp){
-           
+        function print_new_array($replace){
+         
             $res ='';
-            for($i=0;$i<count($new_temp);$i++){
-                $res .="$new_temp[$i] ";
+            for($i=0;$i<count($replace);$i++){
+                $res .="$replace[$i] ";
             }
             return $res;
         }
-       $oldArray= print_old_array($array_temp);
-       $replace =replace_array($number_list, $numberToReplace, $numberReplace)?? ' ';
-       $new_temp=explode(",",$replace);
-       $newArray= print_new_array($new_temp);
-        $res= array_diff($array_temp,$new_temp);
+       $oldArray= print_old_array($array_temp) ??' ';
+       $replace =replace_array($array_temp, $numberToReplace, $numberReplace)?? ' ';
+       
+       $newArray= print_new_array($replace);
+        $res= array_diff($array_temp,$replace);
         if($numberToReplace==""||$res){
             $notFound ="";
         }

@@ -10,7 +10,7 @@
 
 <body>
     <?php
-$namequery = $_GET['name'];
+$namequery = $_GET['name']??"";
 $servername = "localhost";
 $username = "root";
 $password = "";

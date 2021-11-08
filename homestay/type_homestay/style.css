@@ -82,7 +82,7 @@ html {
   text-decoration: none;
   color: inherit;
 }
-.header__item:nth-child(3) {
+.header__item:nth-child(5) {
   border-bottom: 3px solid #f65e39;
 }
 .header__item:nth-child(3):hover,

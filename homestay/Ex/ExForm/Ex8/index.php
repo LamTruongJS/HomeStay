@@ -62,11 +62,11 @@
             <input type="checkbox" class="form-check-input" id="game" name="hobby[]" value="Game" />
             <label class="form-check-label" for="game">Game</label>
         </div>
-
-        <div class="mb-3">
-            <label for="imageEmployee" class="form-label">Hình ảnh cá nhân</label>
-            <input class="form-control form-control-sm" id="imageEmployee" type="file" name="imageEmployee" />
+        <div class="mb-3 form-floating">
+            <textarea class="form-control" id="floatingTextarea2" style="height: 100px" name='note' ></textarea>
+            <label for="floatingTextarea2">Note</label>
         </div>
+      
 
         <button type="submit" class="btn btn-outline-success">Submit</button>
         <button type="reset" class="btn btn-outline-danger float-end">

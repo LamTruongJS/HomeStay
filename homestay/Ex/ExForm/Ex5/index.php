@@ -19,16 +19,16 @@
        if(isset($_POST['tinh'])){
         if($EndTime > $StartTime){
             if($StartTime >=10 && $StartTime<=24 && $EndTime<=24){
-             $hour = $EndTime-$StartTime;
-             if($EndTime < 17){
-                 $sum=$hour *20000;
-             }
-            else if(17<= $StartTime && $EndTime<= 24){
-                $sum = $hour *45000;
-            }
-             else{
-                 $sum = (17-$StartTime)*20000 + ($EndTime - 17)*45000;
-             }
+                $hour = $EndTime-$StartTime;
+                if($EndTime < 17){
+                    $sum=$hour *20000;
+                }
+                else if(17<= $StartTime && $EndTime<= 24){
+                    $sum = $hour *45000;
+                }
+                else{
+                    $sum = (17-$StartTime)*20000 + ($EndTime - 17)*45000;
+                }
             }
             else $notice ="Khung Giờ Không Hợp Lệ!";
          }

@@ -6,37 +6,38 @@
     $email =$_POST['email'];
     $skill =$_POST['skill'];
     $hobby =$_POST['hobby'] ?? '';
-    $imagePath = basename($_FILES['imageEmployee']['name']);
-    echo "<h4>Information Profile:</h4>" ;
-
-    $target_dir="uploads/";
-    $target_file =$target_dir . $imagePath;
-    if(move_uploaded_file($_FILES["imageEmployee"]["tmp_name"],$target_file)){
-        echo "<img src='".$target_file."' width='100px' ><br>";
-    }
-    else echo "No Picture Upload<br>";
-    
-    echo 'UserName: ',$userName,'<br>';
-    echo 'Password: ',$password,'<br>';
+    $note=$_POST['note']??'';
+    $textHobby='';
+    $textSex='';
+    // echo 'UserName: ',$userName,'<br>';
+    // echo 'Password: ',$password,'<br>';
     
     if(!isset($set)){
       
-        echo 'Sex: ',$sex,'<br>';
+       $textSex =$sex;
     }
    
-    echo 'Address: ',$address,'<br>';
-    echo 'Email: ',$email,'<br>';
-    echo 'Skills: ',$skill, '<br>';
+    // echo 'Address: ',$address,'<br>';
+    // echo 'Email: ',$email,'<br>';
+    // echo 'Skills: ',$skill, '<br>';
     
     if(empty($hobby)){
-        echo 'No hobby';
+        $textHobby= 'No hobby';
     }
     else{
         $n = count($hobby);
-        echo 'Your Hooby: ';
+        
         for($i=0;$i<$n;$i++){
-            echo ($hobby[$i].' ' );
+           $textHobby .="$hobby[$i] ";
         }
     }
-   
-?>
+    echo '<table>';
+    echo "<tr><td>UserName:</td><td>$userName</td></tr>";
+    echo "<tr><td>Password:</td><td>$password</td></tr>";
+    echo "<tr><td>Sex:</td><td>$sex</td></tr>";
+    echo "<tr><td>Address:</td><td>$address</td></tr>";
+    echo "<tr><td>Email:</td><td>$email</td></tr>";
+    echo "<tr><td>Skills:</td><td>$skill</td></tr>";
+    echo "<tr><td>Your Hooby:</td><td>$textHobby</td></tr>";
+    echo "<tr><td colspan='2'><a href='javascript:window.history.back();'>Back</a></td></tr>";
+    echo '</table>';
